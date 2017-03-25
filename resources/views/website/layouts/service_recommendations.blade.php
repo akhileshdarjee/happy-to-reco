@@ -27,7 +27,18 @@
 									</div>
 								@endforeach
 							@else
-								<h3 class="text-center">No Result Found</h3>
+								<div class="col-md-4 col-md-offset-4">
+									<div class="box box-widget widget-user-2">
+										<div class="box-header with-border">
+											<div class="text-center">
+												<h3><i class="fa fa-warning text-yellow"></i> Oops! no recommendation found.</h3>
+												<p>
+													We could not find the {{ $service }} you were looking for. Meanwhile, you may return to <a href="#">Home page</a> 
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
 							@endif
 						</div>
 					</div>
