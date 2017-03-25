@@ -2,6 +2,7 @@
 
 namespace HappyToReco\Http\Controllers;
 
+use Auth;
 use DB;
 use Session;
 use Illuminate\Http\Request;
@@ -13,29 +14,12 @@ class WebsiteController extends Controller
 {
 	// show website index page
 	public function show() {
-		$login_id = Session::get('login_id');
-
-		$recommendations = DB::table('tabRecommendation')
-			->leftJoin('tabRecoCities', 'tabRecommendation.id', '=', 'tabRecoCities.recommendation_id')
-			->select(
-				'tabRecommendation.id', 'tabRecommendation.service', 'tabRecommendation.name', 
-				'tabRecommendation.avatar', 'tabRecoCities.city'
-			)
-			->where('tabRecommendation.status', 'Active')
-			->where('tabRecommendation.owner', $login_id)
-			->get();
-
-		$needed = DB::table('tabRequest')
-			->leftJoin('tabService', 'tabRequest.service_id', '=', 'tabService.id')
-			->select(
-				'tabService.avatar', 'tabService.name', 'tabRequest.city'
-			)
-			->where('tabService.status', 'Active')
-			->where('tabRequest.status', 'Active')
-			->where('tabRequest.owner', $login_id)
-			->get();
-
-		return view('website')->with(compact('recommendations', 'needed'));
+		if (Auth::check()) {
+			return $this->getDashboard();
+		}
+		else {
+			return view('website.layouts.index');
+		}
 	}
 
 	public function getRecommendation() {
@@ -56,6 +40,44 @@ class WebsiteController extends Controller
 	}
 
 	public function recommendation_look() {
-		return view('website.layouts.recommendation_look');
+		$services = DB::table('tabService')
+			->select('id', 'name')
+			->where('status', 'Active')
+			->get();
+
+		return view('website.layouts.recommendation_look')->with(compact('services'));
+	}
+
+
+	// get user dashboard
+	public function getDashboard() {
+		if (Auth::check()) {
+			$login_id = Session::get('login_id');
+
+			$recommendations = DB::table('tabRecommendation')
+				->leftJoin('tabRecoCities', 'tabRecommendation.id', '=', 'tabRecoCities.recommendation_id')
+				->select(
+					'tabRecommendation.id', 'tabRecommendation.service', 'tabRecommendation.name', 
+					'tabRecommendation.avatar', 'tabRecoCities.city'
+				)
+				->where('tabRecommendation.status', 'Active')
+				->where('tabRecommendation.owner', $login_id)
+				->get();
+
+			$needed = DB::table('tabRequest')
+				->leftJoin('tabService', 'tabRequest.service_id', '=', 'tabService.id')
+				->select(
+					'tabService.avatar', 'tabService.name', 'tabRequest.city'
+				)
+				->where('tabService.status', 'Active')
+				->where('tabRequest.status', 'Active')
+				->where('tabRequest.owner', $login_id)
+				->get();
+
+			return view('website.layouts.index')->with(compact('recommendations', 'needed'));
+		}
+		else {
+			return view('website.layouts.index');
+		}
 	}
 }

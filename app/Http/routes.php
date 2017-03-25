@@ -44,6 +44,9 @@ Route::group(['middleware' => ['web']], function () {
 	// Request that requires authorization...
 	Route::group(['middleware' => 'auth'], function () {
 
+		// User routes...
+		Route::get('/dashboard', ['as' => 'show.user.dashboard', 'uses' => 'WebsiteController@getDashboard']);
+
 		// App routes...
 		Route::get('/app', ['as' => 'show.app', 'uses' => 'AppController@show_home']);
 
