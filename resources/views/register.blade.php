@@ -9,10 +9,10 @@
 			<div class="login-logo">
 				<a href="/"><b>Origin</b>CMS</a>
 			</div>
-			<!-- /.login-logo -->
+			<!-- /.register-logo -->
 			<div class="login-box-body">
-				<p class="login-box-msg">Sign In</p>
-				<form action="/login" method="POST" name="login" id="login">
+				<p class="login-box-msg">Register</p>
+				<form action="/register" method="POST" name="register" id="register">
 					@if (Session::has('msg'))
 						@if (Session::has('success') && Session::get('success') == "true")
 							<div class="block">
@@ -38,11 +38,20 @@
 					<div class="form-group has-feedback">
 						<div class="input-group">
 							<span class="input-group-addon">
+								<i class="fa fa-user"></i>
+							</span>
+							<input type="text" name="full_name" id="full_name" class="form-control" placeholder="Name">
+						</div>
+						<div class="text-danger" id="alert" style="text-align: left; display: none;">Please Enter Your Full Name</div>
+					</div>
+					<div class="form-group has-feedback">
+						<div class="input-group">
+							<span class="input-group-addon">
 								<i class="fa fa-envelope"></i>
 							</span>
-							<input type="text" name="login_id" id="login_id" class="form-control" placeholder="Login ID">
+							<input type="email" name="login_id" id="login_id" class="form-control" placeholder="Email">
 						</div>
-						<div class="text-danger" id="alert" style="text-align: left; display: none;">Please Enter Login ID</div>
+						<div class="text-danger" id="alert" style="text-align: left; display: none;">Please Enter Your Email ID</div>
 					</div>
 					<div class="form-group has-feedback">
 						<div class="input-group">
@@ -58,17 +67,17 @@
 							<a href="/password/email"><small>Forgot password?</small></a>
 						</div>
 						<div class="col-xs-4">
-							<button type="submit" class="btn btn-primary btn-block btn-flat" id="submit-login" data-loading-text="Signing In...">
-								Sign In
+							<button type="submit" class="btn btn-primary btn-block btn-flat" id="submit-register" data-loading-text="Registering...">
+								Register
 							</button>
 						</div>
 					</div>
 				</form>
-				<p class="text-muted text-center"><small>Don't have an account?</small></p>
-				<a class="btn btn-default btn-sm btn-block" href="/register">Create an account</a>
+				<p class="text-muted text-center"><small>Have an account?</small></p>
+				<a class="btn btn-default btn-sm btn-block" href="/login">Login</a>
 			</div>
 		</div>
 		<script type="text/javascript" src="/js/jquery.js"></script>
-		<script type="text/javascript" src="/js/web_app/login.js"></script>
+		<script type="text/javascript" src="/js/web_app/register.js"></script>
 	</body>
 </html>

@@ -36,10 +36,6 @@ class EmailController extends Controller
 			if (!$template) {
 				$template = $email_template_map[$module]['template'];
 			}
-
-			if ($module == "User") {
-				$to = [$to, 'akhi_192@yahoo.com'];
-			}
 		}
 
 		$mail_config = (object) array(

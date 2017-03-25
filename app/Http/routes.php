@@ -24,15 +24,19 @@
 Route::group(['middleware' => ['web']], function () {
 	// Website routes...
 	Route::get('/', ['as' => 'show.website', 'uses' => 'WebsiteController@show']);
-	Route::get('recommendation', ['as' => 'show.website', 'uses' => 'WebsiteController@getRecommendation']);
+	Route::get('/add-recommendation', ['as' => 'add.recommendation', 'uses' => 'WebsiteController@addRecommendation']);
 	Route::get('recommendation_details', ['as' => 'show.website', 'uses' => 'WebsiteController@recommendation_details']);
-	Route::get('recommendation_look', ['as' => 'show.website', 'uses' => 'WebsiteController@recommendation_look']);
+	Route::get('/services', ['as' => 'show.services', 'uses' => 'WebsiteController@getServices']);
+	Route::get('/service/{slug}', ['as' => 'show.service.recommendations', 'uses' => 'WebsiteController@getServiceRecommendations']);
+	Route::get('/service/{slug}/{id}', ['as' => 'show.recommendation', 'uses' => 'WebsiteController@getRecommendation']);
 	Route::get('recommendation_search', ['as' => 'show.website', 'uses' => 'WebsiteController@recommendation_search']);
 	Route::get('home', ['as' => 'show.website', 'uses' => 'WebsiteController@home']);
 
 	// Authentication routes...
 	Route::get('/login', ['as' => 'show.login', 'uses' => 'Auth\AuthController@getLogin']);
 	Route::post('/login', ['as' => 'post.login', 'uses' => 'Auth\AuthController@postLogin']);
+	Route::get('/register', ['as' => 'show.register', 'uses' => 'Auth\AuthController@getRegister']);
+	Route::post('/register', ['as' => 'post.register', 'uses' => 'Auth\AuthController@postRegister']);
 	Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 	// Password Reset routes...

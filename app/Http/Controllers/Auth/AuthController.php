@@ -85,30 +85,22 @@ class AuthController extends Controller
 
 
 	/**
-	 * Handle a login request to the application from website.
+	 * Show the application register form.
 	 *
-	 * @param  LoginRequest  $request
 	 * @return Response
 	 */
-	public function postWebLogin(Request $request) {
-		$credentials = [
-			'login_id' => $request->get('login_id'),
-			'password' => $request->get('password'),
-			'role' => 'Customer',
-			'status' => 'Active'
-		];
-
-		if (Auth::attempt($credentials)) {
-			$user = User::select('id', 'full_name', 'avatar', 'role', 'login_id')
-				->where('login_id', $credentials['login_id'])
-				->first();
-
-			$this->put_user_data_in_session($user);
-
-			return "true";
+	public function getRegister()
+	{
+		if (Auth::check()) {
+			if (Session::get('role') == "User") {
+				return redirect()->route('show.website');
+			}
+			else {
+				return redirect()->route('show.app');
+			}
 		}
 		else {
-			return "false";
+			return view('register');
 		}
 	}
 
@@ -120,12 +112,8 @@ class AuthController extends Controller
 	 * @return Response
 	 */
 	public function postRegister(Request $request) {
+		Session::put('login_id', 'website_user');
 		Session::put('role', 'Website User');
-
-		$cust = new CustomerController();
-		$customer = $cust->saveForm($request);
-
-		Session::forget('role');
 
 		if ($customer && Session::get('success') == "true") {
 			return redirect()->route('show.login')->with([

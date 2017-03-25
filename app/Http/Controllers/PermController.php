@@ -45,7 +45,7 @@ class PermController extends Controller
 
 		self::$role_modules_based_on_perm = (object) array(
 			'Website User' => (object) array(
-				'Create' => array('')
+				'Create' => array('User')
 			),
 			'User' => (object) array(
 				'Read' => array_values(array_diff(self::$modules, array('Reports'))), 
@@ -109,6 +109,13 @@ class PermController extends Controller
 		// -------------------------------------------------------------------
 
 		self::$module_permissions_based_on_role = array(
+			'Website User' => (object) array(
+				'Create' => (object) array(
+					'User' => (object) array(
+						'role' => 'User'
+					),
+				),
+			),
 			'User' => (object) array(
 				'Read' => (object) array(
 					'Service' => (object) array(),

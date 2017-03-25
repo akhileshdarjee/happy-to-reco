@@ -18,7 +18,7 @@ class FormController extends Controller
 	// define modules to create, update or delete user when module is saved
 	public static $user_via_modules = [];
 	// define modules to send email when create or update is performed
-	public static $email_modules = [];
+	public static $email_modules = ['User'];
 	// define modules to create slug when create or update is performed
 	public static $slug_modules = [];
 	// stores link field value globally across the controller

@@ -19,6 +19,7 @@ class ServiceController extends Controller
 			'module_icon' => 'fa fa-magic',
 			'table_name' => 'tabService',
 			'view' => 'layouts.service',
+			'avatar_folder' => '/images/service',
 			'link_field' => 'id',
 			'link_field_label' => 'ID',
 			'record_identifier' => 'name'

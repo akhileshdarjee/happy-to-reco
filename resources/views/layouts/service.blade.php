@@ -45,6 +45,14 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label class="col-md-4 control-label">Slug</label>
+					<div class="col-md-6">
+						<input type="text" name="slug" id="slug" class="form-control" data-mandatory="yes" autocomplete="off">
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6">
