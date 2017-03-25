@@ -17,6 +17,7 @@ class CreateTabService extends Migration
 			$table->string('avatar')->nullable();
 			$table->string('name');
 			$table->string('status', 12)->default('Active');
+			$table->string('slug');
 			$table->text('description')->nullable();
 			$table->string('owner');
 			$table->string('last_updated_by');

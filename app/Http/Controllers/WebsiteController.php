@@ -22,13 +22,13 @@ class WebsiteController extends Controller
 		}
 	}
 
-	public function getRecommendation() {
+	public function addRecommendation() {
 		$services = DB::table('tabService')
 			->select('id', 'name')
 			->where('status', 'Active')
 			->get();
 
-		return view('website.layouts.recommendation_form')->with(compact('services'));
+		return view('website.layouts.add_recommendation')->with(compact('services'));
 	}
 
 	public function home() {
@@ -39,13 +39,13 @@ class WebsiteController extends Controller
 		return view('website.layouts.recommendation_details');
 	}
 
-	public function recommendation_look() {
+	public function getServices() {
 		$services = DB::table('tabService')
-			->select('id', 'name')
+			->select('id', 'name', 'avatar', 'slug')
 			->where('status', 'Active')
 			->get();
 
-		return view('website.layouts.recommendation_look')->with(compact('services'));
+		return view('website.layouts.services')->with(compact('services'));
 	}
 
 
@@ -81,7 +81,55 @@ class WebsiteController extends Controller
 		}
 	}
 
-	public function recommendation_search() {
-		return view('website.layouts.recommendation_search');
+	public function getServiceRecommendations(Request $request, $slug) {
+		$recommendations = DB::table('tabRecommendation')
+			->leftJoin('tabService', 'tabRecommendation.service_id', '=', 'tabService.id')
+			->leftJoin('tabUser', 'tabRecommendation.owner', '=', 'tabUser.login_id')
+			->select(
+				'tabRecommendation.id', 'tabRecommendation.name', 'tabRecommendation.avatar', 
+				'tabUser.full_name', 'tabService.name'
+			)
+			->where('tabService.slug', $slug)
+			->where('tabRecommendation.status', 'Active')
+			->get();
+
+		$service = DB::table('tabService')
+			->where('slug', $slug)
+			->where('status', 'Active')
+			->pluck('name');
+
+		$service = is_array($service) ? $service[0] : $service;
+
+		if ($service) {
+			return view('website.layouts.service_recommendations')->with(compact('recommendations', 'service', 'slug'));
+		}
+		else {
+			return redirect()->route('show.website');
+		}
+	}
+
+
+	public function getRecommendation(Request $request, $slug, $id) {
+		$recommendation = DB::table('tabRecommendation')
+			->leftJoin('tabUser', 'tabRecommendation.owner', '=', 'tabUser.login_id')
+			->select(
+				'tabRecommendation.name', 'tabRecommendation.avatar', 'tabUser.full_name'
+			);
+
+		if (Auth::check()) {
+			$recommendation = $recommendation->addSelect(
+				'tabRecommendation.contact_no', 'tabRecommendation.address', 'tabRecommendation.description'
+			);
+		}
+
+		$recommendation = $recommendation->where('tabRecommendation.status', 'Active')
+			->first();
+
+		if ($recommendation) {
+			return view('website.layouts.recommendation')->with(compact('recommendation'));
+		}
+		else {
+			return redirect()->route('show.website');
+		}
 	}
 }

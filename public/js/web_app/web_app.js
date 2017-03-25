@@ -51,6 +51,16 @@ String.prototype.isURL = function() {
 	return pattern.test(this);
 }
 
+// slugify text
+String.prototype.slugify = function() {
+	return this.toString().toLowerCase().trim()
+		.replace(/\s+/g, '-')			// Replace spaces with -
+		.replace(/&/g, '-and-')			// Replace & with 'and'
+		.replace(/[^\w\-]+/g, '')		// Remove all non-word chars
+		.replace(/[\s_-]+/g, '-')		// swap any length of whitespace, underscore, hyphen characters with a single -
+		.replace(/^-+|-+$/g, '');		// Remove last floating dash if exists
+};
+
 // Prototyping for getting month long name and short name
 Date.prototype.getMonthName = function(lang) {
 	lang = lang && (lang in Date.locale) ? lang : 'en';

@@ -70,10 +70,6 @@ function add_new_row(table, idx, action) {
 		$(tbody).empty();
 	}
 
-	if ($(tbody).find("tr").length) {
-		set_row_after_input(tbody);
-	}
-
 	// add row html
 	add_row(table, idx ? idx : $(tbody).find("tr").length + 1, action);
 	show_total_badge($("." + $(table).attr("id")).find(".new_row").data("target"));

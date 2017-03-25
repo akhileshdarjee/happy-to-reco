@@ -14,7 +14,7 @@ return [
 	'tabService' => [
 		'link_field' => 'id',
 		'search_via' => 'name',
-		'cols' => ['name', 'status']
+		'cols' => ['name', 'slug', 'status']
 	],
 	'tabRecommendation' => [
 		'link_field' => 'id',

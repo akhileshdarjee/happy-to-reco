@@ -1,6 +1,6 @@
 @extends('website')
 
-@section('title', 'Happy to Reco')
+@section('title', 'Services - Happy to Reco')
 
 @section('body')
 	<div class="container">
@@ -26,7 +26,7 @@
 											<div class="box-header with-border">
 												<div class="text-center">
 													<img class="img-circle" src="{{ $service->avatar }}" alt="{{ $service->name }}">
-													<h2><a href="/login">{{ $service->name }}</a></h2>
+													<h2><a href="/service/{{ $service->slug }}">{{ $service->name }}</a></h2>
 												</div>
 											</div>
 										</div>

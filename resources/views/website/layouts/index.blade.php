@@ -10,7 +10,7 @@
 					Happy to Reco is a personal Recommendation Assistance
 				</p>
 				<p class="lead"> 
-					<a href="/recommendation_look" class="btn btn-outline-inverse btn-lg">Look for Recommendations</a> 
+					<a href="/services" class="btn btn-outline-inverse btn-lg">Look for Recommendations</a> 
 					<a href="/login" class="btn btn-outline-inverse btn-lg">Ask for Recommendations</a> 
 				</p>
 			</div>
