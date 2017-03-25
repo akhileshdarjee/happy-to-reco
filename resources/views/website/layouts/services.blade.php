@@ -25,7 +25,9 @@
 										<div class="box box-widget widget-user-2">
 											<div class="box-header with-border">
 												<div class="text-center">
-													<img class="img-circle" src="{{ $service->avatar }}" alt="{{ $service->name }}">
+													<a href="/service/{{ $service->slug }}" title="{{ $service->name }}">
+														<img class="img-circle" src="{{ $service->avatar }}" alt="{{ $service->name }}">
+													</a>
 													<h2><a href="/service/{{ $service->slug }}">{{ $service->name }}</a></h2>
 												</div>
 											</div>

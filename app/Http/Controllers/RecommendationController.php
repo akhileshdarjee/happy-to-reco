@@ -19,6 +19,7 @@ class RecommendationController extends Controller
 			'module_icon' => 'fa fa-gift',
 			'table_name' => 'tabRecommendation',
 			'view' => 'layouts.recommendation',
+			'avatar_folder' => '/images/recommendation',
 			'link_field' => 'id',
 			'link_field_label' => 'ID',
 			'record_identifier' => 'service',

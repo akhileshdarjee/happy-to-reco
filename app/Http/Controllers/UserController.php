@@ -103,7 +103,7 @@ class UserController extends Controller
 					'email_confirmation_code' => null,
 					'email_confirmed' => 1,
 					'status' => 'Active',
-					'first_login' => 1
+					'first_login' => null
 				];
 
 				$result = User::where('id', $user->id)
@@ -111,7 +111,7 @@ class UserController extends Controller
 
 				if ($result) {
 					$msg = "Email verified successfully. Please change password to continue";
-					return $this->process_first_login($user, $msg);
+					return redirect()->route('show.login')->with(['msg' => $msg, 'success' => 'true']);
 				}
 				else {
 					$msg = "Some error occured while verifying email. Please try again.";

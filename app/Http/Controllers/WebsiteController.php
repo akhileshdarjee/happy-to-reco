@@ -32,7 +32,7 @@ class WebsiteController extends Controller
 	}
 
 	public function home() {
-		return view('website.layouts.home');
+		return view('website.layouts.dashboard');
 	}
 
 	public function recommendation_details() {
@@ -74,7 +74,7 @@ class WebsiteController extends Controller
 				->where('tabRequest.owner', $login_id)
 				->get();
 
-			return view('website.layouts.index')->with(compact('recommendations', 'needed'));
+			return view('website.layouts.dashboard')->with(compact('recommendations', 'needed'));
 		}
 		else {
 			return view('website.layouts.index');

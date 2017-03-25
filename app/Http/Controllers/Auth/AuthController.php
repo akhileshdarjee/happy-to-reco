@@ -115,16 +115,39 @@ class AuthController extends Controller
 		Session::put('login_id', 'website_user');
 		Session::put('role', 'Website User');
 
-		if ($customer && Session::get('success') == "true") {
-			return redirect()->route('show.login')->with([
-				'msg' => 'Your Account has been successfully created. Please Login.',
-				'success' => 'true'
-			]);
+		if ($request->has('full_name') && $request->has('email') && $request->has('password')) {
+			$user_details = [
+				'_token' => $request->get('_token'),
+				'full_name' => $request->get('full_name'),
+				'status' => 'Inactive',
+				'login_id' => $request->get('email'),
+				'email' => $request->get('email'),
+				'role' => 'User',
+				'password' => bcrypt($request->get('password')),
+				'email_confirmation_code' => str_random(30)
+			];
+
+			$request = Request::create('/api/doc/create/user', 'POST', $user_details);
+			$response_data = app()->handle($request);
+			$response = json_decode($response_data->getContent());
+
+			if (isset($response->status_code) && $response->status_code == 200) {
+				return redirect(env('APP_URL') . '/login')->with([
+					'msg' => "Successfully registered. Please check your email inbox",
+					'success' => "true"
+				]);
+			}
+			else {
+				return redirect(env('APP_URL') . '/register')->with([
+					'msg' => "Some error occured. Please try again...!!!",
+					'success' => "false"
+				]);
+			}
 		}
 		else {
-			return back()->withInput()->with([
-				'msg' => 'Some problem occurred, please try again...!!!',
-				'success' => 'false'
+			return redirect(env('APP_URL') . '/register')->with([
+				'msg' => "Please provide Name, Email ID & Password",
+				'success' => "false"
 			]);
 		}
 	}

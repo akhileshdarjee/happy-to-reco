@@ -14,7 +14,7 @@
 			</script>
 		@show
 	</head>
-	@if (Request::is('/'))
+	@if (Request::is('/') && !Auth::check())
 		<body class="hold-transition skin-blue layout-top-nav home">
 	@else
 		<body class="hold-transition skin-blue layout-top-nav">

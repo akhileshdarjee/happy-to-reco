@@ -31,7 +31,7 @@
 												Thanks for creating an account with MyTerroir.<br />
 												Please follow the link below to verify your email address<br /><br />
 												<div style="text-align: center;">
-													<a href="{{ url('/verify/email/' . $data['email_confirmation_code']) }}" style="text-decoration: none; color: #FFF; background-color: #1ab394; border: solid #1ab394; border-width: 5px 10px; line-height: 2; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize;">
+													<a href="{{ url(env('APP_URL') . '/verify/email/' . $data['email_confirmation_code']) }}" style="text-decoration: none; color: #FFF; background-color: #1ab394; border: solid #1ab394; border-width: 5px 10px; line-height: 2; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize;">
 														Verify Email Address
 													</a>
 												</div><br />
@@ -39,9 +39,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td style="padding: 0 0 20px; text-align: center;">
-												
-											</td>
+											<td style="padding: 0 0 20px; text-align: center;"></td>
 										</tr>
 									</table>
 								</td>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Login - Origin CMS</title>
+		<title>Register - Origin CMS</title>
 		@include('templates.headers')
 	</head>
 	<body class="hold-transition login-page">
@@ -49,7 +49,7 @@
 							<span class="input-group-addon">
 								<i class="fa fa-envelope"></i>
 							</span>
-							<input type="email" name="login_id" id="login_id" class="form-control" placeholder="Email">
+							<input type="email" name="email" id="email" class="form-control" placeholder="Email">
 						</div>
 						<div class="text-danger" id="alert" style="text-align: left; display: none;">Please Enter Your Email ID</div>
 					</div>

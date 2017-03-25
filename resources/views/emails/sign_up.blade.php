@@ -33,8 +33,7 @@
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 												Login ID : {{ $data['login_id'] }}<br />
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-												Password : {{ $data['generated_password'] }}<br /><br />
-												<div style="text-align: center;"><a href="{{ url('/login') }}" style="text-decoration: none; color: #FFF; background-color: #1ab394; border: solid #1ab394; border-width: 5px 10px; line-height: 2; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize;">Login</a></div><br />
+												<div style="text-align: center;"><a href="{{ url(env('APP_URL') . '/login') }}" style="text-decoration: none; color: #FFF; background-color: #1ab394; border: solid #1ab394; border-width: 5px 10px; line-height: 2; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize;">Login</a></div><br />
 												See you soon.
 											</td>
 										</tr>

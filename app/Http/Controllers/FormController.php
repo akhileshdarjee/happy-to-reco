@@ -289,24 +289,26 @@ class FormController extends Controller
 			}
 
 			// update activity
-			$activity_data = [
-				'module' => $form_config['module_label'],
-				'icon' => $form_config['module_icon'],
-				'user' => Session::get('user'),
-				'user_id' => Session::get('user_id'),
-				'login_id' => Session::get('login_id'),
-				'action' => ucwords($action),
-				'form_id' => $form_config['link_field_value']
-			];
+			if (Session::get('user') && Session::get('user_id')) {
+				$activity_data = [
+					'module' => $form_config['module_label'],
+					'icon' => $form_config['module_icon'],
+					'user' => Session::get('user'),
+					'user_id' => Session::get('user_id'),
+					'login_id' => Session::get('login_id'),
+					'action' => ucwords($action),
+					'form_id' => $form_config['link_field_value']
+				];
 
-			if (isset($form_config['record_identifier']) && $data[$form_config['record_identifier']]) {
-				$activity_data['record_identifier'] = $data[$form_config['record_identifier']];
-			}
-			else {
-				$activity_data['record_identifier'] = $data['id'];
-			}
+				if (isset($form_config['record_identifier']) && $data[$form_config['record_identifier']]) {
+					$activity_data['record_identifier'] = $data[$form_config['record_identifier']];
+				}
+				else {
+					$activity_data['record_identifier'] = $data['id'];
+				}
 
-			ActivityController::save($activity_data);
+				ActivityController::save($activity_data);
+			}
 
 			// create user if modules come under user_via_modules
 			if (in_array($form_config['module'], self::$user_via_modules) && $result) {
@@ -315,7 +317,17 @@ class FormController extends Controller
 
 			// send email if come in email modules
 			if (in_array($form_config['module'], self::$email_modules) && $result) {
-				if (SettingsController::get_app_setting('email') == "Active") {
+				if (Session::get('role') == "Website User") {
+					$to = isset($data['email']) ? $data['email'] : $data['email_id'];
+
+					if ($form_config['module'] == "User") {
+						EmailController::send(null, $to, null, $data, $form_config['module'], 'emails.verify_email');
+					}
+					else {
+						EmailController::send(null, $to, null, $data, $form_config['module']);
+					}
+				}
+				elseif (SettingsController::get_app_setting('email') == "Active") {
 					$to = isset($data['email']) ? $data['email'] : $data['email_id'];
 					EmailController::send(null, $to, null, $data, $form_config['module']);
 				}

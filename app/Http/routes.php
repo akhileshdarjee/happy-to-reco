@@ -25,12 +25,12 @@ Route::group(['middleware' => ['web']], function () {
 	// Website routes...
 	Route::get('/', ['as' => 'show.website', 'uses' => 'WebsiteController@show']);
 	Route::get('/add-recommendation', ['as' => 'add.recommendation', 'uses' => 'WebsiteController@addRecommendation']);
-	Route::get('recommendation_details', ['as' => 'show.website', 'uses' => 'WebsiteController@recommendation_details']);
+	// Route::get('recommendation_details', ['as' => 'show.website', 'uses' => 'WebsiteController@recommendation_details']);
 	Route::get('/services', ['as' => 'show.services', 'uses' => 'WebsiteController@getServices']);
 	Route::get('/service/{slug}', ['as' => 'show.service.recommendations', 'uses' => 'WebsiteController@getServiceRecommendations']);
 	Route::get('/service/{slug}/{id}', ['as' => 'show.recommendation', 'uses' => 'WebsiteController@getRecommendation']);
-	Route::get('recommendation_search', ['as' => 'show.website', 'uses' => 'WebsiteController@recommendation_search']);
-	Route::get('home', ['as' => 'show.website', 'uses' => 'WebsiteController@home']);
+	Route::get('/recommendation_search', ['as' => 'show.recommendation.search', 'uses' => 'WebsiteController@recommendation_search']);
+	// Route::get('/home', ['as' => 'show.website', 'uses' => 'WebsiteController@home']);
 
 	// Authentication routes...
 	Route::get('/login', ['as' => 'show.login', 'uses' => 'Auth\AuthController@getLogin']);
@@ -45,6 +45,14 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('password/reset/{token}', ['as' => 'reset.password', 'uses' => 'Auth\PasswordController@getReset']);
 	Route::post('password/reset', ['as' => 'post.reset.password', 'uses' => 'Auth\PasswordController@postReset']);
 	Route::get('verify/email/{token}', ['as' => 'verify.email', 'uses' => 'UserController@verifyUserEmail']);
+
+	// App API routes...
+	Route::group(['prefix' => 'api'], function () {
+		Route::post('/doc/create/{module_name}', ['as' => 'api.create.doc', 'uses' => 'FormActions@save']);
+		Route::get('/doc/{module_name}/{id}', ['as' => 'api.get.doc', 'uses' => 'FormActions@show']);
+		Route::post('/doc/update/{module_name}/{id}', ['as' => 'api.update.doc', 'uses' => 'FormActions@save']);
+		Route::get('/doc/delete/{module_name}/{id}', ['as' => 'api.delete.doc', 'uses' => 'FormActions@delete']);
+	});
 
 	// Request that requires authorization...
 	Route::group(['middleware' => 'auth'], function () {
@@ -80,14 +88,5 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/form/{module_name}/draft/{id}', ['as' => 'copy.doc', 'uses' => 'FormActions@copy']);
 		Route::post('/form/{module_name}/{id}', ['as' => 'update.doc', 'uses' => 'FormActions@save']);
 		Route::get('/form/{module_name}/delete/{id}', ['as' => 'delete.doc', 'uses' => 'FormActions@delete']);
-
-		// App API routes...
-		Route::group(['prefix' => 'api'], function () {
-			// Route::get('/list/{module_name}', ['as' => 'api.send.doclist', 'uses' => 'FormActions@show']);
-			Route::post('/doc/create/{module_name}', ['as' => 'api.create.doc', 'uses' => 'FormActions@save']);
-			Route::get('/doc/{module_name}/{id}', ['as' => 'api.get.doc', 'uses' => 'FormActions@show']);
-			Route::post('/doc/update/{module_name}/{id}', ['as' => 'api.update.doc', 'uses' => 'FormActions@save']);
-			Route::get('/doc/delete/{module_name}/{id}', ['as' => 'api.delete.doc', 'uses' => 'FormActions@delete']);
-		});
 	});
 });
