@@ -31,7 +31,7 @@
 								  <h5 class="widget-user-desc">Founder &amp; CEO</h5>
 								</div>
 								<div class="widget-user-image">
-								  <img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+								  <img class="img-circle" src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="User Avatar">
 								</div>
 								<div class="box-footer">
 								  <div class="row">
@@ -61,75 +61,36 @@
 							<h3>Recommended</h3>
 
 							<div class="box box-widget widget-user-2">
-								<div class="box-header with-border">
-									<div class="user-block">
-										<img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image">
-										<span class="username"><a href="#">Dentist</a></span>
-										<span class="description">Kalyan West</span>
-									</div>
-									  <!-- /.user-block -->   
-								</div>
-								<div class="box-header with-border">
-									<div class="user-block">
-										<img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image">
-										<span class="username"><a href="#">Dentist</a></span>
-										<span class="description">Kalyan West</span>
-									</div>
-									  <!-- /.user-block -->   
-								</div>
-								<div class="box-header with-border">
-									<div class="user-block">
-										<img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image">
-										<span class="username"><a href="#">Dentist</a></span>
-										<span class="description">Kalyan West</span>
-									</div>
-									  <!-- /.user-block -->   
-								</div>
-								<div class="box-header with-border">
-									<div class="user-block">
-										<img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image">
-										<span class="username"><a href="#">Dentist</a></span>
-										<span class="description">Kalyan West</span>
-									</div>
-									  <!-- /.user-block -->   
-								</div>
+								@for($i=0;$i<=5;$i++)
+									
+										<div class="box-header with-border">
+											<div class="user-block">
+												<img class="img-circle" src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="User Image">
+												<span class="username"><a href="#">Dentist</a></span>
+												<span class="description">Kalyan West</span>
+											</div>
+											  <!-- /.user-block -->   
+										</div>
+									
+								@endfor
 							</div>
+								
 
 							<h3>Needed</h3>
 
 							<div class="box box-widget widget-user-2">
-								<div class="box-header with-border">
-									<div class="user-block">
-										<img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image">
-										<span class="username"><a href="#">Dentist</a></span>
-										<span class="description">Kalyan West</span>
-									</div>
-									  <!-- /.user-block -->   
-								</div>
-								<div class="box-header with-border">
-									<div class="user-block">
-										<img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image">
-										<span class="username"><a href="#">Dentist</a></span>
-										<span class="description">Kalyan West</span>
-									</div>
-									  <!-- /.user-block -->   
-								</div>
-								<div class="box-header with-border">
-									<div class="user-block">
-										<img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image">
-										<span class="username"><a href="#">Dentist</a></span>
-										<span class="description">Kalyan West</span>
-									</div>
-									  <!-- /.user-block -->   
-								</div>
-								<div class="box-header with-border">
-									<div class="user-block">
-										<img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image">
-										<span class="username"><a href="#">Dentist</a></span>
-										<span class="description">Kalyan West</span>
-									</div>
-									  <!-- /.user-block -->   
-								</div>
+								@for($i=0;$i<=5;$i++)
+									
+										<div class="box-header with-border">
+											<div class="user-block">
+												<img class="img-circle" src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="User Image">
+												<span class="username"><a href="#">Dentist</a></span>
+												<span class="description">Kalyan West</span>
+											</div>
+											  <!-- /.user-block -->   
+										</div>
+									
+								@endfor
 							</div>
 					</section>
 				</div>
