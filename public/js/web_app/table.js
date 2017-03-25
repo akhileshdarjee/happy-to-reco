@@ -227,9 +227,9 @@ function show_empty_row(table) {
 
 
 function set_row_after_input(tbody) {
-	$.each($(tbody).find("tr > td"), function(index, col) {
-		$(col).find("input").addClass("simple-box");
-	});
+	// $.each($(tbody).find("tr > td"), function(index, col) {
+	// 	$(col).find("input").addClass("simple-box");
+	// });
 }
 
 

@@ -11,6 +11,26 @@ return [
 	|
 	*/
 
+	'tabService' => [
+		'link_field' => 'id',
+		'search_via' => 'name',
+		'cols' => ['name', 'status']
+	],
+	'tabRecommendation' => [
+		'link_field' => 'id',
+		'search_via' => 'service',
+		'cols' => ['name', 'service', 'recommended_by', 'status']
+	],
+	'tabFriends' => [
+		'link_field' => 'id',
+		'search_via' => 'name',
+		'cols' => ['name', 'email', 'status']
+	],
+	'tabRequest' => [
+		'link_field' => 'id',
+		'search_via' => 'service',
+		'cols' => ['service', 'requested_by', 'city', 'status']
+	],
 	'tabReports' => [
 		'link_field' => 'id',
 		'search_via' => 'name',

@@ -15,11 +15,11 @@ class PermController extends Controller
 
 	// module name specified in controller
 	private static $modules = [
-		'User', 'Reports'
+		'Service', 'Recommendation', 'Friends', 'Request', 'User', 'Reports'
 	];
 
 	// restrict data to this roles
-	private static $roles = array('Website User', 'Guest');
+	private static $roles = array('Website User', 'User');
 
 	// set module actions
 	private static $permissions = array('Read', 'Create', 'Update', 'Delete');
@@ -47,9 +47,11 @@ class PermController extends Controller
 			'Website User' => (object) array(
 				'Create' => array('')
 			),
-			'Guest' => (object) array(
-				'Read' => array('User'), 
-				'Update' => array('User')
+			'User' => (object) array(
+				'Read' => array_values(array_diff(self::$modules, array('Reports'))), 
+				'Create' => array('Recommendation', 'Request', 'Friends'), 
+				'Update' => array('Recommendation', 'Request', 'User'), 
+				'Delete' => array('Recommendation', 'Request', 'Friends')
 			),
 		);
 
@@ -75,6 +77,7 @@ class PermController extends Controller
 
 	// gets the data related to the role
 	public static function module_wise_permissions($role = null, $action = null, $module_name = null) {
+		$user_id = Session::get('user_id');
 		$user_name = Session::get('user');
 		$user_login_id = Session::get('login_id');
 
@@ -106,18 +109,56 @@ class PermController extends Controller
 		// -------------------------------------------------------------------
 
 		self::$module_permissions_based_on_role = array(
-			'Guest' => (object) array(
+			'User' => (object) array(
 				'Read' => (object) array(
+					'Service' => (object) array(),
+					'Recommendation' => (object) array(
+						'owner' => $user_login_id
+					),
+					'Request' => (object) array(
+						'owner' => $user_login_id
+					),
+					'Friends' => (object) array(
+						'friend_id' => $user_id
+					),
 					'User' => (object) array(
 						'login_id' => $user_login_id
 					),
 				),
+				'Create' => (object) array(
+					'Recommendation' => (object) array(
+						'owner' => $user_login_id
+					),
+					'Request' => (object) array(
+						'owner' => $user_login_id
+					),
+					'Friends' => (object) array(
+						'friend_id' => $user_id
+					),
+				),
 				'Update' => (object) array(
+					'Recommendation' => (object) array(
+						'owner' => $user_login_id
+					),
+					'Request' => (object) array(
+						'owner' => $user_login_id
+					),
 					'User' => (object) array(
 						'login_id' => $user_login_id,
-						'role' => 'Guest'
+						'role' => 'User'
 					), 
-				)
+				),
+				'Delete' => (object) array(
+					'Recommendation' => (object) array(
+						'owner' => $user_login_id
+					),
+					'Request' => (object) array(
+						'owner' => $user_login_id
+					),
+					'Friends' => (object) array(
+						'friend_id' => $user_id
+					),
+				),
 			),
 		);
 
