@@ -17,4 +17,12 @@ class WebsiteController extends Controller
 	public function recommendation_form() {
 		return view('website.layouts.recommendation_form');
 	}
+
+	public function home() {
+		return view('website.layouts.home');
+	}
+
+	public function recommendation_details() {
+		return view('website.layouts.recommendation_details');
+	}
 }

@@ -276,6 +276,10 @@ a.back-to-top:hover {
 	margin: 0px !important;
 }
 
+.mar-t-10 {
+	margin-top: 10px;
+}
+
 .vertical-timeline-content:before {
 	border-right: 7px solid #f3f3f4;
 }
