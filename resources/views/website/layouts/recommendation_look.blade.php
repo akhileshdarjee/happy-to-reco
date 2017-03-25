@@ -28,7 +28,7 @@
 					              
 					             	<div class="has-feedback">
 					                  <input type="text" class="form-control input-sm" placeholder="Search Recommendation">
-					                  <span class="glyphicon glyphicon-search form-control-feedback"></span>
+					                  <span class="fa fa-search form-control-feedback"></span>
 					                </div>
 					              
 					              <!-- /.box-tools -->
