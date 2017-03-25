@@ -14,10 +14,10 @@
 			</script>
 		@show
 	</head>
-	@if (Auth::check())
-		<body class="hold-transition skin-blue layout-top-nav">
-	@else
+	@if (Request::is('/') && !Auth::check())
 		<body class="hold-transition skin-blue layout-top-nav home">
+	@else
+		<body class="hold-transition skin-blue layout-top-nav">
 	@endif
 		<div class="wrapper">
 			@include('website.templates.navbar')
