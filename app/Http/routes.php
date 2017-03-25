@@ -23,11 +23,7 @@
 
 Route::group(['middleware' => ['web']], function () {
 	// Website routes...
-	Route::get('/', function() {
-		return redirect()->route('show.login');
-	});
-
-	// API calls
+	Route::get('/', ['as' => 'show.website', 'uses' => 'WebsiteController@show']);
 
 	// Authentication routes...
 	Route::get('/login', ['as' => 'show.login', 'uses' => 'Auth\AuthController@getLogin']);

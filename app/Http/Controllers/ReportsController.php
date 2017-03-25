@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace HappyToReco\Http\Controllers;
 
 use DB;
 use File;
@@ -9,14 +9,14 @@ use Session;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use HappyToReco\Http\Requests;
+use HappyToReco\Http\Controllers\Controller;
 
 class ReportsController extends Controller
 {
 	// define common variables
 	public $form_config;
-	public static $controllers_path = "App\\Http\\Controllers";
+	public static $controllers_path = "HappyToReco\\Http\\Controllers";
 
 	public function __construct() {
 		$this->form_config = [
@@ -61,7 +61,7 @@ class ReportsController extends Controller
 
 	// get report file text
 	public function get_report_file($report_data) {
-		$module_ctrl = App::make("App\\Http\\Controllers\\" . $report_data['module'] . "Controller");
+		$module_ctrl = App::make("HappyToReco\\Http\\Controllers\\" . $report_data['module'] . "Controller");
 		$module_config = $module_ctrl->form_config;
 
 		if ($report_data['columns']) {
@@ -69,12 +69,12 @@ class ReportsController extends Controller
 		}
 
 		$report_file = "<?php\r\r";
-		$report_file .= "namespace App\Http\Controllers\Reports;\r\r";
+		$report_file .= "namespace HappyToReco\Http\Controllers\Reports;\r\r";
 		$report_file .= "use DB;\r";
 		$report_file .= "use Session;\r";
 		$report_file .= "use Illuminate\Http\Request;\r\r";
-		$report_file .= "use App\Http\Requests;\r";
-		$report_file .= "use App\Http\Controllers\Controller;\r\r";
+		$report_file .= "use HappyToReco\Http\Requests;\r";
+		$report_file .= "use HappyToReco\Http\Controllers\Controller;\r\r";
 		$report_file .= "class " . str_replace(' ', '', $report_data['name']) . " extends Controller\r";
 		$report_file .= "{\r";
 		$report_file .= "\t// get all rows & colummns for report\r";

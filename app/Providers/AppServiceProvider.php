@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace HappyToReco\Providers;
 
 use Blade;
 use Illuminate\Support\ServiceProvider;

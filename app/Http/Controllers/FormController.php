@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace HappyToReco\Http\Controllers;
 
 use DB;
 use Auth;
@@ -8,8 +8,8 @@ use File;
 use Session;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use HappyToReco\Http\Requests;
+use HappyToReco\Http\Controllers\Controller;
 
 class FormController extends Controller
 {

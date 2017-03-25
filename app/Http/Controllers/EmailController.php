@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace HappyToReco\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
 use DB;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use HappyToReco\Http\Requests;
+use HappyToReco\Http\Controllers\Controller;
 
 class EmailController extends Controller
 {

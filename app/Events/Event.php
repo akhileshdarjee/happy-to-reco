@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace HappyToReco\Events;
 
 abstract class Event
 {

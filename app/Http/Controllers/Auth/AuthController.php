@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace HappyToReco\Http\Controllers\Auth;
 
 use DB;
 use Auth;
 use Session;
-use App\User;
+use HappyToReco\User;
 use Validator;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\AppController;
-use App\Http\Controllers\ActivityController;
+use HappyToReco\Http\Controllers\Controller;
+use HappyToReco\Http\Controllers\AppController;
+use HappyToReco\Http\Controllers\ActivityController;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 

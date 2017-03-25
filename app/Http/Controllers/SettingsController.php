@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace HappyToReco\Http\Controllers;
 
 use DB;
 use Session;
 use App;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use HappyToReco\Http\Requests;
+use HappyToReco\Http\Controllers\Controller;
 
 class SettingsController extends Controller
 {
-	public static $controllers_path = "App\\Http\\Controllers";
+	public static $controllers_path = "HappyToReco\\Http\\Controllers";
 
 	// Show app settings page
 	public function show() {
