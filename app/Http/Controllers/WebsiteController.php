@@ -80,4 +80,8 @@ class WebsiteController extends Controller
 			return view('website.layouts.index');
 		}
 	}
+
+	public function recommendation_search() {
+		return view('website.layouts.recommendation_search');
+	}
 }
