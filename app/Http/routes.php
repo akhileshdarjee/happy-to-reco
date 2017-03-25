@@ -25,6 +25,9 @@ Route::group(['middleware' => ['web']], function () {
 	// Website routes...
 	Route::get('/', ['as' => 'show.website', 'uses' => 'WebsiteController@show']);
 	Route::get('recommendation', ['as' => 'show.website', 'uses' => 'WebsiteController@getRecommendation']);
+	Route::get('recommendation_details', ['as' => 'show.website', 'uses' => 'WebsiteController@recommendation_details']);
+	Route::get('recommendation_look', ['as' => 'show.website', 'uses' => 'WebsiteController@recommendation_look']);
+	Route::get('home', ['as' => 'show.website', 'uses' => 'WebsiteController@home']);
 
 	// Authentication routes...
 	Route::get('/login', ['as' => 'show.login', 'uses' => 'Auth\AuthController@getLogin']);

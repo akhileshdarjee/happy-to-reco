@@ -73,7 +73,14 @@
 										</div>
 									
 								@endfor
+								<div class="box-header with-border">
+									<h5 class="text-center"><strong>Please help others</strong></h5>
+									<a href="#" class="btn btn-primary btn-block">Make Recommendation</a>
+									  <!-- /.user-block -->   
+								</div>
+								
 							</div>
+
 								
 
 							<h3>Needed</h3>
@@ -91,6 +98,12 @@
 										</div>
 									
 								@endfor
+
+								<div class="box-header with-border">
+									<h5 class="text-center"><strong>Need something?</strong></h5>
+									<a href="#" class="btn btn-primary btn-block">Ask for help</a>
+									  <!-- /.user-block -->   
+								</div>
 							</div>
 					</section>
 				</div>

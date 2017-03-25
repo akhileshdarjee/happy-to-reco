@@ -46,4 +46,16 @@ class WebsiteController extends Controller
 
 		return view('website.layouts.recommendation_form')->with(compact('services'));
 	}
+
+	public function home() {
+		return view('website.layouts.home');
+	}
+
+	public function recommendation_details() {
+		return view('website.layouts.recommendation_details');
+	}
+
+	public function recommendation_look() {
+		return view('website.layouts.recommendation_look');
+	}
 }
