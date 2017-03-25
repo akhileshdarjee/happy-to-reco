@@ -25,4 +25,8 @@ class WebsiteController extends Controller
 	public function recommendation_details() {
 		return view('website.layouts.recommendation_details');
 	}
+
+	public function recommendation_look() {
+		return view('website.layouts.recommendation_look');
+	}
 }
