@@ -119,21 +119,14 @@ class WebsiteController extends Controller
 			->leftJoin('tabUser', 'tabRecommendation.owner', '=', 'tabUser.login_id')
 			->select(
 				'tabRecommendation.id', 'tabRecommendation.name', 'tabRecommendation.avatar', 
-				'tabUser.full_name', 'tabService.name'
+				'tabUser.full_name', 'tabService.name as service'
 			)
 			->where('tabService.slug', $slug)
 			->where('tabRecommendation.status', 'Active')
 			->get();
 
-		$service = DB::table('tabService')
-			->where('slug', $slug)
-			->where('status', 'Active')
-			->pluck('name');
-
-		$service = is_array($service) ? $service[0] : $service;
-
-		if ($service) {
-			return view('website.layouts.service_recommendations')->with(compact('recommendations', 'service', 'slug'));
+		if ($recommendations) {
+			return view('website.layouts.service_recommendations')->with(compact('recommendations', 'slug'));
 		}
 		else {
 			return redirect()->route('show.website');
