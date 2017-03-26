@@ -34,7 +34,7 @@ return [
 	'tabRequest' => [
 		'link_field' => 'id',
 		'search_via' => 'service',
-		'cols' => ['service', 'requested_by', 'city', 'status']
+		'cols' => ['service', 'requested_by', 'status']
 	],
 	'tabReports' => [
 		'link_field' => 'id',

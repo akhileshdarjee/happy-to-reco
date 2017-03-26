@@ -28,11 +28,27 @@ class WebsiteController extends Controller
 			->where('status', 'Active')
 			->get();
 
-		return view('website.layouts.add_recommendation')->with(compact('services'));
+		$cities = DB::table('tabCity')
+			->select('id', 'name')
+			->where('status', 'Active')
+			->get();
+
+		return view('website.layouts.add_recommendation')->with(compact('services', 'cities'));
 	}
 
-	public function recommendation_details() {
-		return view('website.layouts.recommendation_details');
+
+	public function postRecommendation() {
+		$services = DB::table('tabService')
+			->select('id', 'name')
+			->where('status', 'Active')
+			->get();
+
+		$cities = DB::table('tabCity')
+			->select('id', 'name')
+			->where('status', 'Active')
+			->get();
+
+		return view('website.layouts.add_recommendation')->with(compact('services', 'cities'));
 	}
 
 	public function getServices() {
@@ -142,6 +158,7 @@ class WebsiteController extends Controller
 		}
 
 		$recommendation = $recommendation->where('tabRecommendation.status', 'Active')
+			->where('tabRecommendation.id', $id)
 			->get();
 
 		if (count($recommendation) == 1) {
@@ -171,8 +188,15 @@ class WebsiteController extends Controller
 			$recommendation = 0;
 		}
 
+		$service = DB::table('tabService')
+			->where('slug', $slug)
+			->where('status', 'Active')
+			->pluck('name');
+
+		$service = is_array($service) ? $service[0] : $service;
+
 		if ($recommendation) {
-			return view('website.layouts.recommendation')->with(compact('recommendation', 'slug'));
+			return view('website.layouts.recommendation')->with(compact('recommendation', 'slug', 'service'));
 		}
 		else {
 			return redirect()->route('show.website');

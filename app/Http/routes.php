@@ -24,12 +24,9 @@
 Route::group(['middleware' => ['web']], function () {
 	// Website routes...
 	Route::get('/', ['as' => 'show.website', 'uses' => 'WebsiteController@show']);
-	Route::get('/add-recommendation', ['as' => 'add.recommendation', 'uses' => 'WebsiteController@addRecommendation']);
-	// Route::get('recommendation_details', ['as' => 'show.website', 'uses' => 'WebsiteController@recommendation_details']);
 	Route::get('/services', ['as' => 'show.services', 'uses' => 'WebsiteController@getServices']);
 	Route::get('/service/{slug}', ['as' => 'show.service.recommendations', 'uses' => 'WebsiteController@getServiceRecommendations']);
 	Route::get('/service/{slug}/{id}', ['as' => 'show.recommendation', 'uses' => 'WebsiteController@getRecommendation']);
-	Route::get('/recommendation_search', ['as' => 'show.recommendation.search', 'uses' => 'WebsiteController@recommendation_search']);
 
 	// Authentication routes...
 	Route::get('/login', ['as' => 'show.login', 'uses' => 'Auth\AuthController@getLogin']);
@@ -39,11 +36,11 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 	// Password Reset routes...
-	Route::get('password/email', ['as' => 'forgot.password', 'uses' => 'Auth\PasswordController@getEmail']);
-	Route::post('password/email', ['as' => 'post.forgot.password', 'uses' => 'Auth\PasswordController@postEmail']);
-	Route::get('password/reset/{token}', ['as' => 'reset.password', 'uses' => 'Auth\PasswordController@getReset']);
-	Route::post('password/reset', ['as' => 'post.reset.password', 'uses' => 'Auth\PasswordController@postReset']);
-	Route::get('verify/email/{token}', ['as' => 'verify.email', 'uses' => 'UserController@verifyUserEmail']);
+	Route::get('/password/email', ['as' => 'forgot.password', 'uses' => 'Auth\PasswordController@getEmail']);
+	Route::post('/password/email', ['as' => 'post.forgot.password', 'uses' => 'Auth\PasswordController@postEmail']);
+	Route::get('/password/reset/{token}', ['as' => 'reset.password', 'uses' => 'Auth\PasswordController@getReset']);
+	Route::post('/password/reset', ['as' => 'post.reset.password', 'uses' => 'Auth\PasswordController@postReset']);
+	Route::get('/verify/email/{token}', ['as' => 'verify.email', 'uses' => 'UserController@verifyUserEmail']);
 
 	// App API routes...
 	Route::group(['prefix' => 'api'], function () {
@@ -58,6 +55,10 @@ Route::group(['middleware' => ['web']], function () {
 
 		// User routes...
 		Route::get('/dashboard', ['as' => 'show.user.dashboard', 'uses' => 'WebsiteController@getDashboard']);
+		Route::get('/add-recommendation', ['as' => 'add.recommendation', 'uses' => 'WebsiteController@addRecommendation']);
+		Route::post('/add-recommendation', ['as' => 'add.recommendation', 'uses' => 'WebsiteController@postRecommendation']);
+		Route::get('/add-request', ['as' => 'add.request', 'uses' => 'WebsiteController@addRequest']);
+		Route::post('/add-request', ['as' => 'add.request', 'uses' => 'WebsiteController@postRequest']);
 
 		// App routes...
 		Route::get('/app', ['as' => 'show.app', 'uses' => 'AppController@show_home']);

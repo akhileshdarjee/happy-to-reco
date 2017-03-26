@@ -13,7 +13,7 @@
 				<a href="/services">Services</a>
 			</li>
 			<li>
-				<a href="/service/{{ $slug }}">{{ ucfirst($slug) }}</a>
+				<a href="/service/{{ $slug }}">{{ $service }}</a>
 			</li>
 			<li class="active">
 				<strong>{{ $recommendation->name }}</strong>
