@@ -56,9 +56,9 @@ Route::group(['middleware' => ['web']], function () {
 		// User routes...
 		Route::get('/dashboard', ['as' => 'show.user.dashboard', 'uses' => 'WebsiteController@getDashboard']);
 		Route::get('/add-recommendation', ['as' => 'add.recommendation', 'uses' => 'WebsiteController@addRecommendation']);
-		Route::post('/add-recommendation', ['as' => 'add.recommendation', 'uses' => 'WebsiteController@postRecommendation']);
+		Route::post('/add-recommendation', ['as' => 'post.recommendation', 'uses' => 'WebsiteController@postRecommendation']);
 		Route::get('/add-request', ['as' => 'add.request', 'uses' => 'WebsiteController@addRequest']);
-		Route::post('/add-request', ['as' => 'add.request', 'uses' => 'WebsiteController@postRequest']);
+		Route::post('/add-request', ['as' => 'post.request', 'uses' => 'WebsiteController@postRequest']);
 
 		// App routes...
 		Route::get('/app', ['as' => 'show.app', 'uses' => 'AppController@show_home']);

@@ -14,12 +14,7 @@ class WebsiteController extends Controller
 {
 	// show website index page
 	public function show() {
-		if (Auth::check()) {
-			return $this->getDashboard();
-		}
-		else {
-			return view('website.layouts.index');
-		}
+		return view('website.layouts.index');
 	}
 
 	public function addRecommendation() {
@@ -109,7 +104,7 @@ class WebsiteController extends Controller
 			return view('website.layouts.dashboard')->with(compact('recommendations', 'needed'));
 		}
 		else {
-			return view('website.layouts.index');
+			return redirect()->route('show.website');
 		}
 	}
 

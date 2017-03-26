@@ -76,7 +76,7 @@ class AuthController extends Controller
 		ActivityController::save($activity_data);
 
 		if ($user->role == "User") {
-			return redirect()->route('show.website');
+			return redirect()->route('show.user.dashboard');
 		}
 		else {
 			return redirect()->route('show.app');
