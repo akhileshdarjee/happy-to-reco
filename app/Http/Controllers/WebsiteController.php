@@ -32,18 +32,39 @@ class WebsiteController extends Controller
 	}
 
 
-	public function postRecommendation() {
-		$services = DB::table('tabService')
-			->select('id', 'name')
-			->where('status', 'Active')
-			->get();
+	public function postRecommendation(Request $request) {
+		if ($request->has('service_id') && $request->get('service_id') && $request->has('name') && $request->get('name') && $request->has('contact_no') && $request->get('contact_no') && $request->has('address') && $request->get('address') && $request->has('city') && $request->get('city')) {
+			$recommendation = [
+				'_token' => $request->get('_token'),
+				'avatar' => $request->get('avatar'),
+				'name' => $request->get('name'),
+				'status' => 'Active',
+				'service_id' => $request->get('service_id'),
+				'contact_no' => $request->get('contact_no'),
+				'address' => $request->get('address'),
+				'description' => $request->get('description'),
+			];
 
-		$cities = DB::table('tabCity')
-			->select('id', 'name')
-			->where('status', 'Active')
-			->get();
+			$request = Request::create('/api/doc/create/recommendation', 'POST', $recommendation);
+			$response_data = app()->handle($request);
+			$response = json_decode($response_data->getContent());
 
-		return view('website.layouts.add_recommendation')->with(compact('services', 'cities'));
+			if (isset($response->status_code) && $response->status_code == 200) {
+				return redirect(env('APP_URL') . '/add-recommendation')->with([
+					'msg' => "Recommendation saved successfully",
+					'success' => "true"
+				]);
+			}
+			else {
+				return redirect(env('APP_URL') . '/add-recommendation')->with([
+					'msg' => "Some error occured. Please try again...!!!",
+					'success' => "false"
+				]);
+			}
+		}
+		else {
+			return redirect(env('APP_URL') . '/add-recommendation')->with(['msg' => 'Please Enter Service, Name, Contact No, Address & City', 'success' => 'false']);
+		}
 	}
 
 	public function getServices() {

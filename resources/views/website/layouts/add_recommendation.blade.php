@@ -9,6 +9,27 @@
 				<div class="login-box-body">
 					<h3>Recommend services to your friend that help him/her</h3>
 					<form method="POST" action="/add-recommendation" name="add-recommendation" class="form-horizontal" enctype="multipart/form-data">
+						@if (Session::has('msg'))
+							@if (Session::has('success') && Session::get('success') == "true")
+								<div class="block">
+									<div class="alert alert-success alert-dismissible">
+										<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+										<strong>
+											<i class="fa fa-check fa-lg"></i> {{ Session::get('msg') }}
+										</strong>
+									</div>
+								</div>
+							@else
+								<div class="block">
+									<div class="alert alert-danger alert-dismissible">
+										<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+										<strong>
+											<i class="fa fa-exclamation-triangle fa-lg"></i> {{ Session::get('msg') }}
+										</strong>
+									</div>
+								</div>
+							@endif
+						@endif
 						{!! csrf_field() !!}
 						<div class="form-group">
 							<label for="inputName" class="col-sm-3 control-label">Service </label>

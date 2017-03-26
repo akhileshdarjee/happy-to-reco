@@ -13,6 +13,9 @@
 				<ul class="nav navbar-nav">
 					@if (Auth::check())
 						<li>
+							<a href="/">Home</a>
+						</li>
+						<li>
 							<a href="/dashboard">Dashboard</a>
 						</li>
 						<li>

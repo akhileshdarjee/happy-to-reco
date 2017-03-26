@@ -78,7 +78,7 @@
 					@endforeach
 					<div class="box-header with-border">
 						<h5 class="text-center"><strong>Need help?</strong></h5>
-						<a href="#" class="btn btn-primary btn-block">Ask for help</a>
+						<a href="#" class="btn btn-primary btn-block">Ask for Recommendations</a>
 						<!-- /.user-block -->   
 					</div>
 				</div>
