@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Register - Origin CMS</title>
+		<title>Register - Happy to Reco</title>
 		@include('templates.headers')
 	</head>
 	<body class="hold-transition login-page">
 		<div class="login-box">
 			<div class="login-logo">
-				<a href="/"><b>Origin</b>CMS</a>
+				<a href="/">Happy to Reco</a>
 			</div>
 			<!-- /.register-logo -->
 			<div class="login-box-body">

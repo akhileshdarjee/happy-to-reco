@@ -96,7 +96,7 @@
 							<span class="input-group-addon">
 								<i class="fa fa-user"></i>
 							</span>
-							<input type="text" name="recommended_by" id="recommended_by" class="form-control autocomplete" data-mandatory="yes" autocomplete="off" data-target-module="User" data-target-field="full_name">
+							<input type="text" name="recommended_by" id="recommended_by" class="form-control autocomplete" data-mandatory="yes" autocomplete="off" data-target-module="User" data-target-field="full_name" value="{{ Session::get('user') }}">
 						</div>
 					</div>
 				</div>
@@ -112,7 +112,8 @@
 									<th width="6%" id="sr_no" class="text-center">#</th>
 									<th id="action" class="text-center" style="display: none;">Action</th>
 									<th id="row_id" class="text-center" style="display: none;">ID</th>
-									<th width="88%" class="text-center" data-field-type="text" data-field-name="city">City</th>
+									<th width="88%" class="text-center" data-field-type="link" data-field-name="city" data-target-module="City" data-target-field="name">City</th>
+									<th data-field-type="text" data-field-name="city_id" data-target-module="City" data-target-field="id" data-hidden="yes" style="display: none;">City ID</th>
 									<th width="6%" id="remove"></th>
 								</tr>
 							</thead>

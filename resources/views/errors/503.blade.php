@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>503 Error | Service Temporarily Unavailable | Origin CMS</title>
+		<title>503 Error | Service Temporarily Unavailable | Happy to Reco</title>
 		@include('templates.headers')
 	</head>
 	<body class="nav-md">

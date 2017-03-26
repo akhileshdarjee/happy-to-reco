@@ -31,10 +31,6 @@ class WebsiteController extends Controller
 		return view('website.layouts.add_recommendation')->with(compact('services'));
 	}
 
-	public function home() {
-		return view('website.layouts.dashboard');
-	}
-
 	public function recommendation_details() {
 		return view('website.layouts.recommendation_details');
 	}
@@ -53,24 +49,44 @@ class WebsiteController extends Controller
 	public function getDashboard() {
 		if (Auth::check()) {
 			$login_id = Session::get('login_id');
+			$recommendations = [];
 
-			$recommendations = DB::table('tabRecommendation')
+			$recommended = DB::table('tabRecommendation')
 				->leftJoin('tabRecoCities', 'tabRecommendation.id', '=', 'tabRecoCities.recommendation_id')
+				->leftJoin('tabCity', 'tabRecoCities.city_id', '=', 'tabCity.id')
 				->select(
 					'tabRecommendation.id', 'tabRecommendation.service', 'tabRecommendation.name', 
-					'tabRecommendation.avatar', 'tabRecoCities.city'
+					'tabRecommendation.avatar', 'tabCity.name as city'
 				)
 				->where('tabRecommendation.status', 'Active')
+				->where('tabCity.status', 'Active')
 				->where('tabRecommendation.owner', $login_id)
 				->get();
 
+			foreach ($recommended as $recommend) {
+				$city = $recommend->city;
+				unset($recommend->city);
+
+				if (isset($recommendations[$recommend->id])) {
+					if (!in_array($city, $recommendations[$recommend->id]->cities)) {
+						array_push($recommendations[$recommend->id]->cities, $city);
+					}
+				}
+				else {
+					$recommendations[$recommend->id] = $recommend;
+					$recommendations[$recommend->id]->cities = [$city];
+				}
+			}
+
 			$needed = DB::table('tabRequest')
 				->leftJoin('tabService', 'tabRequest.service_id', '=', 'tabService.id')
+				->leftJoin('tabCity', 'tabRequest.city_id', '=', 'tabCity.id')
 				->select(
-					'tabService.avatar', 'tabService.name', 'tabRequest.city'
+					'tabService.avatar', 'tabService.name', 'tabCity.name as city'
 				)
 				->where('tabService.status', 'Active')
 				->where('tabRequest.status', 'Active')
+				->where('tabCity.status', 'Active')
 				->where('tabRequest.owner', $login_id)
 				->get();
 
@@ -111,9 +127,12 @@ class WebsiteController extends Controller
 
 	public function getRecommendation(Request $request, $slug, $id) {
 		$recommendation = DB::table('tabRecommendation')
+			->leftJoin('tabRecoCities', 'tabRecommendation.id', '=', 'tabRecoCities.recommendation_id')
+			->leftJoin('tabCity', 'tabRecoCities.city_id', '=', 'tabCity.id')
 			->leftJoin('tabUser', 'tabRecommendation.owner', '=', 'tabUser.login_id')
 			->select(
-				'tabRecommendation.name', 'tabRecommendation.avatar', 'tabUser.full_name'
+				'tabRecommendation.id', 'tabRecommendation.name', 'tabRecommendation.avatar', 
+				'tabUser.full_name as recommended_by', 'tabCity.name as city'
 			);
 
 		if (Auth::check()) {
@@ -123,7 +142,34 @@ class WebsiteController extends Controller
 		}
 
 		$recommendation = $recommendation->where('tabRecommendation.status', 'Active')
-			->first();
+			->get();
+
+		if (count($recommendation) == 1) {
+			$recommendation = $recommendation[0];
+		}
+		elseif (count($recommendation) > 1) {
+			$recommendations = [];
+
+			foreach ($recommendation as $recommend) {
+				$city = $recommend->city;
+				unset($recommend->city);
+
+				if (isset($recommendations[$recommend->id])) {
+					if (!in_array($city, $recommendations[$recommend->id]->cities)) {
+						array_push($recommendations[$recommend->id]->cities, $city);
+					}
+				}
+				else {
+					$recommendations[$recommend->id] = $recommend;
+					$recommendations[$recommend->id]->cities = [$city];
+				}
+			}
+
+			$recommendation = reset($recommendations);
+		}
+		else {
+			$recommendation = 0;
+		}
 
 		if ($recommendation) {
 			return view('website.layouts.recommendation')->with(compact('recommendation'));

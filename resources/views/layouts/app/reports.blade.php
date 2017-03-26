@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Reports - Origin CMS')
+@section('title', 'Reports - Happy to Reco')
 
 @section('body')
 	<div class="rpw"> 

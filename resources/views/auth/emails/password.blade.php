@@ -3,7 +3,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Reset Password - Origin CMS</title>
+		<title>Reset Password - Happy to Reco</title>
 	</head>
 	<body style="font-family: 'Open Sans', sans-serif;">
 		<table style="background-color: #f6f6f6; width: 100%;">
@@ -16,7 +16,7 @@
 								<td style="padding: 20px;">
 									<table cellpadding="0" cellspacing="0" style="width: 100%;">
 										<tr>
-											<td align="center">Origin CMS</td>
+											<td align="center">Happy to Reco</td>
 										</tr>
 										<tr>
 											<td style="padding: 0 0 20px;">
@@ -32,9 +32,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td style="padding: 0 0 20px; text-align: center;">
-												
-											</td>
+											<td style="padding: 0 0 20px; text-align: center;"></td>
 										</tr>
 									</table>
 								</td>

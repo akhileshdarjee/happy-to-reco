@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', awesome_case($title) . ' List - Origin CMS')
+@section('title', awesome_case($title) . ' List - Happy to Reco')
 
 @section('breadcrumb')
 	<section class="content-header">

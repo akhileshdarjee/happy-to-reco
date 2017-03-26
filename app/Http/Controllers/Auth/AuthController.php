@@ -174,7 +174,7 @@ class AuthController extends Controller
 		Session::flush();
 
 		// if customer was logged in then redirect to website
-		if ($user_role == "Customer") {
+		if ($user_role == "User") {
 			return redirect()->route('show.website');
 		}
 		else {

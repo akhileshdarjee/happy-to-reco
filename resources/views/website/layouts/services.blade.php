@@ -6,15 +6,14 @@
 	<div class="container">
 		<section class="content">
 			<div class="col-md-12">
-				<div class="box box-primary">
+				<!-- <div class="box box-primary">
 					<div class="box-header with-border">
 						<div class="has-feedback">
 							<input type="text" class="form-control input-sm" placeholder="Search Recommendation">
 							<span class="fa fa-search form-control-feedback"></span>
 						</div>
-						<!-- /.box-tools -->
 					</div>
-				</div>
+				</div> -->
 				<h3>Services</h3>
 				<div class="row">
 					<div class="col-md-12">

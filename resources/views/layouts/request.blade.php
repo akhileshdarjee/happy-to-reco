@@ -53,7 +53,8 @@
 							<span class="input-group-addon">
 								<i class="fa fa-location-arrow"></i>
 							</span>
-							<input type="text" name="city" id="city" class="form-control" data-mandatory="yes" autocomplete="off">
+							<input type="hidden" name="city_id" id="city_id" class="form-control" data-mandatory="yes" autocomplete="off" data-target-module="City" data-target-field="id">
+							<input type="text" name="city" id="city" class="form-control autocomplete" data-mandatory="yes" autocomplete="off" data-target-module="City" data-target-field="name">
 						</div>
 					</div>
 				</div>

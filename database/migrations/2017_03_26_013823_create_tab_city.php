@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTabRequest extends Migration
+class CreateTabCity extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -12,14 +12,11 @@ class CreateTabRequest extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('tabRequest', function (Blueprint $table) {
+		Schema::create('tabCity', function (Blueprint $table) {
 			$table->increments('id');
-			$table->string('service');
-			$table->integer('service_id')->unsigned();
-			$table->string('requested_by');
-			$table->integer('user_id')->unsigned();
-			$table->integer('city_id')->unsigned();
+			$table->string('name');
 			$table->string('status', 12)->default('Active');
+			$table->string('slug');
 			$table->text('description')->nullable();
 			$table->string('owner');
 			$table->string('last_updated_by');
@@ -34,6 +31,6 @@ class CreateTabRequest extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('tabRequest');
+		Schema::drop('tabCity');
 	}
 }

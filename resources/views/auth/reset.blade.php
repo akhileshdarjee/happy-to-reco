@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Password Reset - Origin CMS</title>
+		<title>Password Reset - Happy to Reco</title>
 		@include('templates.headers')
 	</head>
 	<body class="login">
@@ -45,7 +45,7 @@
 							<div class="clearfix"></div>
 							<div class="separator">
 								<div>
-									<h1><i class="fa fa-eye"></i> Origin CMS</h1>
+									<h1><i class="fa fa-eye"></i> Happy to Reco</h1>
 								</div>
 							</div>
 						</form>

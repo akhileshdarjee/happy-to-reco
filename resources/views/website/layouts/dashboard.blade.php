@@ -44,8 +44,16 @@
 						<div class="box-header with-border">
 							<div class="user-block">
 								<img class="img-circle" src="{{ $recommendation->avatar }}" alt="{{ $recommendation->name }}">
-								<span class="username"><a href="/">{{ $recommendation->service }}</a></span>
-								<span class="description">Kalyan West</span>
+								<span class="username">
+									<a href="/">{{ $recommendation->service }}</a>
+								</span>
+								@if (count($recommendation->cities) > 2)
+									<span class="description">{{ $recommendation->cities[0] }}, {{ $recommendation->cities[1] }} &amp; {{ (count($recommendation->cities) - 2) }} others</span>
+								@elseif (count($recommendation->cities) == 2)
+									<span class="description">{{ $recommendation->cities[0] }} &amp; {{ $recommendation->cities[1] }}</span>
+								@elseif (count($recommendation->cities) == 1)
+									<span class="description">{{ $recommendation->cities[0] }}</span>
+								@endif
 							</div>
 							<!-- /.user-block -->
 						</div>

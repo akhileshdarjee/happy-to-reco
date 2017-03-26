@@ -24,7 +24,15 @@ class RecommendationController extends Controller
 			'link_field_label' => 'ID',
 			'record_identifier' => 'service',
 			'child_tables' => ['tabRecoCities'],
-			'child_foreign_key' => 'recommendation_id'
+			'child_foreign_key' => 'recommendation_id',
+			'child_foreign_map' => [
+				'tabRecoCities' => [
+					'tabCity' => [
+						'foreign_key' => 'city_id',
+						'fetch_field' => 'tabCity.name as city'
+					],
+				]
+			]
 		];
 	}
 }

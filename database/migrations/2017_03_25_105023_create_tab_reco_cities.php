@@ -15,7 +15,7 @@ class CreateTabRecoCities extends Migration
 		Schema::create('tabRecoCities', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('recommendation_id')->unsigned();
-			$table->string('city');
+			$table->integer('city_id')->unsigned();
 			$table->string('owner');
 			$table->string('last_updated_by');
 			$table->timestamps();

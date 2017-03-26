@@ -358,7 +358,6 @@ function msgbox(msg, footer, title, size) {
 
 // add status labels, icon for money related fields
 function beautify_list_view(table) {
-
 	// field defaults
 	var money_list = ['total_amount', 'grand_total', 'rate', 'amount', 'debit', 'credit', 'price'];
 	var contact_list = ['contact_no', 'phone_no', 'phone', 'mobile', 'mobile_no'];
@@ -367,7 +366,7 @@ function beautify_list_view(table) {
 	var label_list = ['status', 'role'];
 	var label_bg = {
 		'status' : { 'Active' : 'label-success', 'Inactive' : 'label-danger', 'Vacant' : 'label-success', 'Occupied' : 'label-danger' }, 
-		'role' : { 'Administrator' : 'label-default', 'Customer' : 'label-info' }
+		'role' : { 'Administrator' : 'label-default', 'User' : 'label-info' }
 	}
 
 	var table = table ? table : "table.list-view";

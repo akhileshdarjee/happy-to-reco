@@ -16,6 +16,11 @@ return [
 		'search_via' => 'name',
 		'cols' => ['name', 'slug', 'status']
 	],
+	'tabCity' => [
+		'link_field' => 'id',
+		'search_via' => 'name',
+		'cols' => ['name', 'slug', 'status']
+	],
 	'tabRecommendation' => [
 		'link_field' => 'id',
 		'search_via' => 'service',

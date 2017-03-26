@@ -2,9 +2,9 @@
 	<!-- Logo -->
 	<a href="/app" class="logo">
 		<!-- mini logo for sidebar mini 50x50 pixels -->
-		<span class="logo-mini"><b>O</b>C</span>
+		<span class="logo-mini"><b>H</b>R</span>
 		<!-- logo for regular state and mobile devices -->
-		<span class="logo-lg"><b>Origin</b>CMS</span>
+		<span class="logo-lg"><b>Happy to Reco</span>
 	</a>
 	<!-- Header Navbar: style can be found in header.less -->
 	<nav class="navbar navbar-static-top">

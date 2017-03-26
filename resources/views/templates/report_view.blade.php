@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', ucwords($title) . ' - Origin CMS')
+@section('title', ucwords($title) . ' - Happy to Reco')
 
 @push('styles')
 	<link type="text/css" rel="stylesheet" href="{{ elixir('css/web_app/app-report.css') }}">

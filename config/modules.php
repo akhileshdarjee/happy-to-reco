@@ -18,6 +18,13 @@ return [
 		'bg_color' => '#3f2d56', 
 		'icon_color' => '#ffffff'
 	],
+	'City' => [
+		'module_label' => 'City', 
+		'href' => '/list/city', 
+		'icon' => 'fa fa-location-arrow', 
+		'bg_color' => '#e83f6f', 
+		'icon_color' => '#ffffff'
+	],
 	'Recommendation' => [
 		'module_label' => 'Recommendation', 
 		'href' => '/list/recommendation', 

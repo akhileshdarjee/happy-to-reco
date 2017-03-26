@@ -30,7 +30,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/service/{slug}', ['as' => 'show.service.recommendations', 'uses' => 'WebsiteController@getServiceRecommendations']);
 	Route::get('/service/{slug}/{id}', ['as' => 'show.recommendation', 'uses' => 'WebsiteController@getRecommendation']);
 	Route::get('/recommendation_search', ['as' => 'show.recommendation.search', 'uses' => 'WebsiteController@recommendation_search']);
-	// Route::get('/home', ['as' => 'show.website', 'uses' => 'WebsiteController@home']);
 
 	// Authentication routes...
 	Route::get('/login', ['as' => 'show.login', 'uses' => 'Auth\AuthController@getLogin']);

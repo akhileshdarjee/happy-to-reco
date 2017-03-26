@@ -16,7 +16,9 @@
 										<div class="box box-widget widget-user-2">
 											<div class="box-header with-border">
 												<div class="text-center">
-													<img class="img-circle" src="{{ $recommendation->avatar }}" alt="{{ $recommendation->name }}">
+													<a href="/service/{{ $slug }}/{{ $recommendation->id }}">
+														<img class="img-circle img-responsive" src="{{ $recommendation->avatar }}" alt="{{ $recommendation->name }}">
+													</a>
 													<h2><a href="/service/{{ $slug }}/{{ $recommendation->id }}">{{ $recommendation->name }}</a></h2>
 													<p class="mar-t-10">
 														<span class="label label-success">Personally recommended</span> <br/>by {{ $recommendation->full_name }}
@@ -33,7 +35,7 @@
 											<div class="text-center">
 												<h3><i class="fa fa-warning text-yellow"></i> Oops! no recommendation found.</h3>
 												<p>
-													We could not find the {{ $service }} you were looking for. Meanwhile, you may return to <a href="#">Home page</a> 
+													We could not find the {{ $service }} you were looking for. Meanwhile, check our other <a href="/services">Services</a> 
 												</p>
 											</div>
 										</div>

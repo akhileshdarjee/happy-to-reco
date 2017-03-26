@@ -26,6 +26,10 @@ class RequestController extends Controller
 				'tabUser' => [
 					'foreign_key' => 'user_id',
 					'fetch_field' => 'tabUser.name as requested_by'
+				],
+				'tabCity' => [
+					'foreign_key' => 'city_id',
+					'fetch_field' => 'tabCity.name as city'
 				]
 			],
 		];

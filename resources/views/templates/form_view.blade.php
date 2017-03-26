@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', awesome_case($title) . ' - Origin CMS')
+@section('title', awesome_case($title) . ' - Happy to Reco')
 
 @section('data')
 	<script type="text/javascript">
