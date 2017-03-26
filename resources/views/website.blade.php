@@ -22,6 +22,7 @@
 		<div class="wrapper">
 			@include('website.templates.navbar')
 			<div class="content-wrapper">
+				@yield('breadcrumb')
 				@yield('body')
 			</div>
 		</div>

@@ -133,7 +133,7 @@ class AuthController extends Controller
 
 			if (isset($response->status_code) && $response->status_code == 200) {
 				return redirect(env('APP_URL') . '/login')->with([
-					'msg' => "Successfully registered. Please check your email inbox",
+					'msg' => "Successfully registered. Please check your inbox to verify your email.",
 					'success' => "true"
 				]);
 			}

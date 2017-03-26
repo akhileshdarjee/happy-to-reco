@@ -43,7 +43,7 @@ class EmailController extends Controller
 		);
 
 		Mail::send($template, array('data' => $data), function ($message) use ($mail_config) {
-			$message->from($mail_config->from, "Web App");
+			$message->from($mail_config->from, "Happy to Reco");
 			$message->to($mail_config->to);
 			$message->subject($mail_config->subject);
 		});

@@ -2,6 +2,20 @@
 
 @section('title', 'Services - Happy to Reco')
 
+@section('breadcrumb')
+	<section class="content-header">
+		<h1>&nbsp;</h1>
+		<ol class="breadcrumb app-breadcrumb">
+			<li>
+				<a href="/">Home</a>
+			</li>
+			<li class="active">
+				<strong>Services</strong>
+			</li>
+		</ol>
+	</section>
+@endsection
+
 @section('body')
 	<div class="container">
 		<section class="content">
@@ -14,7 +28,6 @@
 						</div>
 					</div>
 				</div> -->
-				<h3>Services</h3>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="row">

@@ -110,7 +110,7 @@ class UserController extends Controller
 					->update($update_details);
 
 				if ($result) {
-					$msg = "Email verified successfully. Please change password to continue";
+					$msg = "Email verified successfully. Please login to continue";
 					return redirect()->route('show.login')->with(['msg' => $msg, 'success' => 'true']);
 				}
 				else {

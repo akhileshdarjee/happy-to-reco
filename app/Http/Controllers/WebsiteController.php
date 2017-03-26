@@ -172,7 +172,7 @@ class WebsiteController extends Controller
 		}
 
 		if ($recommendation) {
-			return view('website.layouts.recommendation')->with(compact('recommendation'));
+			return view('website.layouts.recommendation')->with(compact('recommendation', 'slug'));
 		}
 		else {
 			return redirect()->route('show.website');

@@ -2,11 +2,27 @@
 
 @section('title', $service . ' Recommendations - Happy to Reco')
 
+@section('breadcrumb')
+	<section class="content-header">
+		<h1>&nbsp;</h1>
+		<ol class="breadcrumb app-breadcrumb">
+			<li>
+				<a href="/">Home</a>
+			</li>
+			<li>
+				<a href="/services">Services</a>
+			</li>
+			<li class="active">
+				<strong>{{ $service }}</strong>
+			</li>
+		</ol>
+	</section>
+@endsection
+
 @section('body')
 	<div class="container">
 		<section class="content">
 			<div class="col-md-12">
-				<h3>{{ $service }}</h3>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="row">

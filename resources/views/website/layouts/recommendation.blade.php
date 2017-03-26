@@ -2,6 +2,26 @@
 
 @section('title', 'Recommendation - Happy to Reco')
 
+@section('breadcrumb')
+	<section class="content-header">
+		<h1>&nbsp;</h1>
+		<ol class="breadcrumb app-breadcrumb">
+			<li>
+				<a href="/">Home</a>
+			</li>
+			<li>
+				<a href="/services">Services</a>
+			</li>
+			<li>
+				<a href="/service/{{ $slug }}">{{ ucfirst($slug) }}</a>
+			</li>
+			<li class="active">
+				<strong>{{ $recommendation->name }}</strong>
+			</li>
+		</ol>
+	</section>
+@endsection
+
 @section('body')
 	<div class="container">
 		<section class="content">
