@@ -66,7 +66,12 @@ class SettingsController extends Controller
 	// get app setting value
 	public static function get_app_setting($name = null) {
 		if ($name) {
-			return Session::get('app_settings')[$name];
+			if (isset(Session::get('app_settings')[$name])) {
+				return Session::get('app_settings')[$name];
+			}
+			else {
+				return false;
+			}
 		}
 		else {
 			return Session::get('app_settings');

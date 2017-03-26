@@ -8,7 +8,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<div class="login-box-body">
 					<h3>Recommend services to your friend that help him/her</h3>
-					<form name="add-recommendation" class="form-horizontal" enctype="multipart/form-data">
+					<form method="POST" action="/add-recommendation" name="add-recommendation" class="form-horizontal" enctype="multipart/form-data">
 						{!! csrf_field() !!}
 						<div class="form-group">
 							<label for="inputName" class="col-sm-3 control-label">Service </label>
