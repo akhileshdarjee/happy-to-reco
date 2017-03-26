@@ -125,12 +125,7 @@ class WebsiteController extends Controller
 			->where('tabRecommendation.status', 'Active')
 			->get();
 
-		if ($recommendations) {
-			return view('website.layouts.service_recommendations')->with(compact('recommendations', 'slug'));
-		}
-		else {
-			return redirect()->route('show.website');
-		}
+		return view('website.layouts.service_recommendations')->with(compact('recommendations', 'slug'));
 	}
 
 
