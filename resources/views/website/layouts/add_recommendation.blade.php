@@ -102,3 +102,7 @@
 		</section>
 	</div>
 @endsection
+
+@push('scripts')
+	<script type="text/javascript" src="/js/web_app/table.js"></script>
+@endpush

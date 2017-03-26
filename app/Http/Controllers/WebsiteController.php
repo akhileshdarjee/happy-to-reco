@@ -86,9 +86,10 @@ class WebsiteController extends Controller
 			$recommended = DB::table('tabRecommendation')
 				->leftJoin('tabRecoCities', 'tabRecommendation.id', '=', 'tabRecoCities.recommendation_id')
 				->leftJoin('tabCity', 'tabRecoCities.city_id', '=', 'tabCity.id')
+				->leftJoin('tabService', 'tabRecommendation.service_id', '=', 'tabService.id')
 				->select(
 					'tabRecommendation.id', 'tabRecommendation.service', 'tabRecommendation.name', 
-					'tabRecommendation.avatar', 'tabCity.name as city'
+					'tabRecommendation.avatar', 'tabCity.name as city', 'tabService.slug'
 				)
 				->where('tabRecommendation.status', 'Active')
 				->where('tabCity.status', 'Active')

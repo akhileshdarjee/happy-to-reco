@@ -45,7 +45,7 @@
 							<div class="user-block">
 								<img class="img-circle" src="{{ $recommendation->avatar }}" alt="{{ $recommendation->name }}">
 								<span class="username">
-									<a href="/">{{ $recommendation->service }}</a>
+									<a href="/service/{{ $recommendation->slug }}/{{ $recommendation->id }}">{{ $recommendation->service }}</a>
 								</span>
 								@if (count($recommendation->cities) > 2)
 									<span class="description">{{ $recommendation->cities[0] }}, {{ $recommendation->cities[1] }} &amp; {{ (count($recommendation->cities) - 2) }} others</span>
