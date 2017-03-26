@@ -125,7 +125,19 @@ class WebsiteController extends Controller
 			->where('tabRecommendation.status', 'Active')
 			->get();
 
-		return view('website.layouts.service_recommendations')->with(compact('recommendations', 'slug'));
+		$service = DB::table('tabService')
+			->where('slug', $slug)
+			->where('status', 'Active')
+			->pluck('name');
+
+		$service = is_array($service) ? $service[0] : $service;
+
+		if ($service) {
+			return view('website.layouts.service_recommendations')->with(compact('recommendations', 'service', 'slug'));
+		}
+		else {
+			return redirect()->route('show.website');
+		}
 	}
 
 

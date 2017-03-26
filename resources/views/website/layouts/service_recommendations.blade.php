@@ -1,6 +1,6 @@
 @extends('website')
 
-@section('title', $recommendations[0]->service . ' Recommendations - Happy to Reco')
+@section('title', $service . ' Recommendations - Happy to Reco')
 
 @section('breadcrumb')
 	<section class="content-header">
@@ -13,7 +13,7 @@
 				<a href="/services">Services</a>
 			</li>
 			<li class="active">
-				<strong>{{ $recommendations[0]->service }}</strong>
+				<strong>{{ $service }}</strong>
 			</li>
 		</ol>
 	</section>
