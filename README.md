@@ -4,7 +4,7 @@ Happy to Reco is written on PHP with Laravel as framework and has MySQL database
 Frontend is built up on using Bootstrap.
 On top of Laravel we've used [Origin CMS](https://github.com/akhileshdarjee/origin-cms)
 
-[http://139.59.36.64:8097](Happy to Reco)
+[http://139.59.36.64:8097] (Happy to Reco)
 
 ---
 
