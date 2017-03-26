@@ -163,6 +163,8 @@ class WebsiteController extends Controller
 
 		if (count($recommendation) == 1) {
 			$recommendation = $recommendation[0];
+			$recommendation->cities = [$recommendation->city];
+			unset($recommendation->city);
 		}
 		elseif (count($recommendation) > 1) {
 			$recommendations = [];
