@@ -39,10 +39,19 @@ class WebsiteController extends Controller
 				'avatar' => $request->get('avatar'),
 				'name' => $request->get('name'),
 				'status' => 'Active',
+				'service' => $this->getService($request->get('service_id')),
 				'service_id' => $request->get('service_id'),
 				'contact_no' => $request->get('contact_no'),
 				'address' => $request->get('address'),
 				'description' => $request->get('description'),
+				'recommended_by' => Session::get('user')
+			];
+
+			$recommendation['tabRecoCities'] = [
+				[
+					'action' => 'create',
+					'city_id' => $request->get('city')
+				]
 			];
 
 			$request = Request::create('/api/doc/create/recommendation', 'POST', $recommendation);
@@ -220,5 +229,16 @@ class WebsiteController extends Controller
 		else {
 			return redirect()->route('show.website');
 		}
+	}
+
+
+	public function getService($id) {
+		$service = DB::table('tabService')
+			->where('id', $id)
+			->pluck('name');
+
+		$service = is_array($service) ? $service[0] : $service;
+
+		return $service;
 	}
 }

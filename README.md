@@ -10,20 +10,17 @@ On top of Laravel we've used [Origin CMS](https://github.com/akhileshdarjee/orig
 
 ### Intro
 
-This portal has a simple aim -
-To make it easy for fans to be informed about their favourite live (music) gigs.
+Even in the age of internet - we still ask our friends and family if we need recommendations for people.
+Like if you want a driver for your parents - you will not Google but ask your friends if they know a good driver.
+If you need a dentist, you will do the same.
 
-After signing up, users have option to follow 
-- Artists
-- Venues (Where live gigs happen)
-- Genre (A particular type of music)
+This portal aims to help people find trustworthy recommendations.
+Make your profile
+Add the recommendations - people whom you trust.
+Ask for recommendations - put what you are looking for and others in the community will help you out.
 
-Users will be shown upcoming gigs
-- Of the artist they have followed (any venue)
-- Of the venue they have followed (any artist, any genre)
-- Of the genre they have followed (any artist, any venue)
-
-The data of the Artist, venue and genre is maintained through the backend.
+Currently, we are restricting to some types of services.
+Once connected with Facebook friends, this will be a goto place if people want local services.
 
 ---
 
@@ -59,19 +56,6 @@ Now, you've completed the configuration step :v:
 
 
 Enjoy...!!! :thumbsup:
-
----
-
-### Screenshots
-
-![Home Page]
-(http://gigalert.in/img/gig_alert.png)
-
-![All Gigs]
-(http://gigalert.in/img/gigs.png)
-
-![Discover]
-(http://gigalert.in/img/discover.png)
 
 ---
 

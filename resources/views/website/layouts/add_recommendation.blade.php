@@ -34,7 +34,7 @@
 						<div class="form-group">
 							<label for="inputName" class="col-sm-3 control-label">Service </label>
 							<div class="col-sm-9">
-								<select class="form-control" id="service_type" name="service_type">
+								<select class="form-control" id="service_id" name="service_id">
 									<option value="">Select Service Type</option>
 									@if (count($services))
 										@foreach($services as $service)
@@ -55,6 +55,17 @@
 										@endforeach
 									@endif
 								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Avatar</label>
+							<div class="col-sm-9">
+								<div class="media-body">
+									<label title="Upload image file" for="avatar" class="btn btn-primary btn-sm">
+										<input type="file" accept="image/*" name="avatar" id="avatar" class="hide">
+										Select...
+									</label>
+								</div>
 							</div>
 						</div>
 						<div class="form-group">
@@ -81,16 +92,6 @@
 								<textarea class="form-control" name="description" id="description" placeholder="Tell something more about the person..."></textarea>
 							</div>
 						</div>
-						@if (Session::get('msg') && Session::get('success') == "false")
-							<div class="form-group form-error">
-								<div class="alert alert-danger alert-dismissible">
-									<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-									<strong>
-										<i class="fa fa-exclamation-triangle fa-lg"></i> {{ Session::get('msg') }}
-									</strong>
-								</div>
-							</div>
-						@endif
 						<div class="form-group">
 							<div class="col-sm-offset-3 col-sm-10">
 								<button type="submit" class="btn btn-danger">Submit</button>
@@ -102,7 +103,3 @@
 		</section>
 	</div>
 @endsection
-
-@push('scripts')
-	<script type="text/javascript" src="/js/web_app/table.js"></script>
-@endpush
